@@ -1,0 +1,14 @@
+minio:
+  enabled: true
+  replicas: 4
+  rootUser: admin
+  rootPassword: admin
+  persistence:
+    size: 50Gi
+  resources:
+    requests:
+      cpu: 500m
+      memory: 512Mi
+
+loki:
+  auth_enabled: false
