@@ -5,10 +5,10 @@ minio:
   rootUser: admin
   rootPassword: admin
   persistence:
-    size: 50Gi
+    size: 10Gi
   resources:
     requests:
-      cpu: 500m
+      cpu: 1000m
       memory: 512Mi
 
 loki:
