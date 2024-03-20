@@ -1,7 +1,7 @@
 minio:
   enabled: true
   replicas: 3
-  drivesPerNode: 1
+  drivesPerNode: 2
   rootUser: admin
   rootPassword: admin
   persistence:
@@ -9,7 +9,7 @@ minio:
   resources:
     requests:
       cpu: 1000m
-      memory: 512Mi
+      memory: 1Gi
 
 loki:
   auth_enabled: false
