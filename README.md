@@ -1,34 +1,36 @@
 # k8s-monitor
 
-## SetUp Helm Repo
+## SetUp
+
+### Helm Repo
 
 ```sh
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 ```
 
-### SetUp Loki
+### Loki
 
 ```sh
 kubectl create ns loki
 helm upgrade --install loki grafana/loki -f loki-values.yaml -n loki
 ```
 
-### install mimir
+### Mimir
 
 ```sh
 kubectl create ns mimir
 helm upgrade --install mimir grafana/mimir-distributed -n mimir
 ```
 
-### install grafana
+### Grafana
 
 ```sh
 kubectl create ns monitoring
 helm upgrade --install grafana grafana/grafana -f grafana-values.yaml -n monitoring
 ```
 
-##### import k8s jvm dashboard template
+#### import k8s jvm dashboard template
 
 monitoring 디렉토리 안에있는 dashboard.json 을 import 한다.
 
