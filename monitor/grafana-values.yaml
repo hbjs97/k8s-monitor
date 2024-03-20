@@ -1,3 +1,14 @@
+persistence:
+  type: pvc
+  enabled: true
+
+adminUser: admin
+adminPassword: admin
+
+plugins:
+  - alexanderzobnin-zabbix-app
+  - grafana-clock-panel
+
 datasources:
   datasources.yaml:
     apiVersion: 1
@@ -5,8 +16,10 @@ datasources:
       - name: Loki
         type: loki
         access: proxy
-        url: http://loki-gateway.loki.svc.cluster.local
+        url: http://loki-gateway.monitoring.svc.cluster.local
         editable: true
-
-adminUser: admin
-adminPassword: admin
+      - name: Mimir
+        type: prometheus
+        access: proxy
+        url: http://mimir-nginx.monitoring.svc/prometheus
+        editable: true
