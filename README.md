@@ -9,6 +9,8 @@ helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 ```
 
+---
+
 ### Loki
 
 ```sh
@@ -16,12 +18,16 @@ kubectl create ns loki
 helm upgrade --install loki grafana/loki -f loki-values.yaml -n loki
 ```
 
+---
+
 ### Mimir
 
 ```sh
 kubectl create ns mimir
 helm upgrade --install mimir grafana/mimir-distributed -n mimir
 ```
+
+---
 
 ### Grafana
 
