@@ -57,3 +57,11 @@ monitoring 디렉토리 안에있는 dashboard.json 을 import 한다.
 변수 job 에서 본인 프로젝트의 애플리케이션 명으로 적절히 수정한다.
 
 ![Alt text](images/image-3.png)
+
+#### grafana agent `too many open files` 에러
+
+```sh
+sudo sysctl -w fs.inotify.max_user_instances=512
+```
+
+128 -> 512
