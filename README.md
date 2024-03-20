@@ -47,13 +47,13 @@ monitoring 디렉토리 안에있는 dashboard.json 을 import 한다.
 > - 애플리케이션의 별도의 Bean 혹은 설정 제거
 > - grafana agent 에서 등록한 job_name 기반 필터링
 
-![Alt text](image.png)
+![Alt text](images/image.png)
 
 위와같이 import 된다. job을 등록해줘야한다.
 
-![Alt text](image-1.png)
-![Alt text](image-2.png)
+![Alt text](images/image-1.png)
+![Alt text](images/image-2.png)
 
 변수 job 에서 본인 프로젝트의 애플리케이션 명으로 적절히 수정한다.
 
-![Alt text](image-3.png)
+![Alt text](images/image-3.png)
