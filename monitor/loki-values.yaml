@@ -1,9 +1,7 @@
 minio:
   enabled: true
   replicas: 3
-  drivesPerNode: 2
-  rootUser: admin
-  rootPassword: admin
+  drivesPerNode: 1
   persistence:
     size: 10Gi
   resources:
