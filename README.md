@@ -15,7 +15,7 @@ helm repo update
 
 ```sh
 kubectl create ns loki
-helm upgrade --install loki grafana/loki -f loki-values.yaml -n loki
+helm upgrade --install loki grafana/loki -f monitoring/loki-values.yaml -n loki
 ```
 
 ---
@@ -33,7 +33,7 @@ helm upgrade --install mimir grafana/mimir-distributed -n mimir
 
 ```sh
 kubectl create ns monitoring
-helm upgrade --install grafana grafana/grafana -f grafana-values.yaml -n monitoring
+helm upgrade --install grafana grafana/grafana -f monitoring/grafana-values.yaml -n monitoring
 ```
 
 #### import k8s jvm dashboard template
