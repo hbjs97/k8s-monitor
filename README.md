@@ -1,28 +1,29 @@
 # k8s-monitor
 
-## SetUp
+## SetUp Helm Repo
 
 ```sh
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
-
-kubectl create ns monitoring
 ```
 
-### install loki
+### SetUp Loki
 
 ```sh
-helm upgrade --install loki grafana/loki -f loki-values.yaml -n monitoring
+kubectl create ns loki
+helm upgrade --install loki grafana/loki -f loki-values.yaml -n loki
 ```
 
 ### install mimir
 
 ```sh
-helm upgrade --install mimir grafana/mimir-distributed -n monitoring
+kubectl create ns mimir
+helm upgrade --install mimir grafana/mimir-distributed -n mimir
 ```
 
 ### install grafana
 
 ```sh
+kubectl create ns monitoring
 helm upgrade --install grafana grafana/grafana -f grafana-values.yaml -n monitoring
 ```

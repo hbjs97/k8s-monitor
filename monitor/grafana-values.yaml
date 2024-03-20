@@ -16,10 +16,10 @@ datasources:
       - name: Loki
         type: loki
         access: proxy
-        url: http://loki-gateway.monitoring.svc.cluster.local
+        url: http://loki-gateway.loki.svc.cluster.local
         editable: true
       - name: Mimir
         type: prometheus
         access: proxy
-        url: http://mimir-nginx.monitoring.svc/prometheus
+        url: http://mimir-nginx.mimir.svc/prometheus
         editable: true
