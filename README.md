@@ -29,6 +29,15 @@ helm upgrade --install mimir grafana/mimir-distributed -n mimir
 
 ---
 
+### Tempo
+
+```sh
+kubectl create ns tempo
+helm upgrade --install tempo grafana/tempo-distributed -f monitoring/tempo-values.yaml -n tempo
+```
+
+---
+
 ### Grafana
 
 ```sh

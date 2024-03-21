@@ -1,0 +1,30 @@
+minio:
+  enabled: true
+  mode: standalone
+  rootUser: grafana-tempo
+  rootPassword: supersecret
+  buckets:
+    # Default Tempo storage bucket
+    - name: tempo-traces
+      policy: none
+      purge: false
+  persistence:
+    size: 10Gi
+  resources:
+    requests:
+      cpu: 1000m
+      memory: 1Gi
+
+traces:
+  otlp:
+    grpc:
+      enabled: true
+    http:
+      enabled: true
+  zipkin:
+    enabled: false
+  jaeger:
+    thriftHttp:
+      enabled: false
+  opencensus:
+    enabled: false
