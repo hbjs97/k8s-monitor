@@ -29,6 +29,8 @@ traces:
   opencensus:
     enabled: false
 
+# metricsGenerator 로 service-graphs 설정 하지 않으면 tempo 에서 service-graphs 가 보여지지 않는다.
+# grafana agent 의 설정은 동작하지 않았다.
 metricsGenerator:
   enabled: true
   config:
