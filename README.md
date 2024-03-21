@@ -80,10 +80,10 @@ helm upgrade --install grafana grafana/grafana -f monitoring/grafana-values.yaml
 
 #### import k8s jvm dashboard template
 
-monitoring 디렉토리 안에있는 dashboard.json 을 import 한다.
+monitoring/jvm-viewer.json 를 import
 
 > <https://grafana.com/grafana/dashboards/4701-jvm-micrometer/>
-> 위 템플릿을 기반으로 수정한 템플릿이다.
+> 위 템플릿을 기반으로 수정했다.
 >
 > - angular 기반의 컴포넌트 마이그레이션
 > - 애플리케이션의 별도의 Bean 혹은 설정 제거
@@ -100,6 +100,24 @@ monitoring 디렉토리 안에있는 dashboard.json 을 import 한다.
 
 ![Alt text](images/image-3.png)
 
+#### import k8s loki log dashboard template
+
+monitoring/log-viewer.json 를 import
+
+> <https://grafana.com/grafana/dashboards/15141-kubernetes-service-logs/>
+> 위 템플릿을 기반으로 수정했다.
+>
+> - `app` 라벨로 서비스 필터링
+> - Log Level 로 필터링
+> - trace-id, span-id 로 필터링
+>   - spring sleuth 에서 생성되는 값을 logback 에서 json 으로 로깅 후 필터링
+
+![Alt text](images/image-7.png)
+
+---
+
+### Troubleshooting
+
 #### grafana agent `too many open files` 에러
 
 ```sh
@@ -107,3 +125,12 @@ sudo sysctl -w fs.inotify.max_user_instances=512
 ```
 
 128 -> 512
+
+#### tomcat_threads_busy_threads 지표가 표시되지 않는 문제
+
+Utilisation 패널이 보이지 않는다. tomcat_threads_busy_threads 메트릭이 수집되지 않아서 그렇다.
+아래와 같이 설정을 추가해준다.
+
+![Alt text](images/image-6.png)
+
+단, webflux 기반의 애플리케이션(spring gateway 등)은 tomcat 지표가 없다.
