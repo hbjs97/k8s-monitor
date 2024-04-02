@@ -9,14 +9,14 @@ minio:
       cpu: 1000m
       memory: 1Gi
 
-write:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-              - key: gpu
-                operator: DoesNotExist
+# write:
+#   affinity:
+#     nodeAffinity:
+#       requiredDuringSchedulingIgnoredDuringExecution:
+#         nodeSelectorTerms:
+#           - matchExpressions:
+#               - key: gpu
+#                 operator: DoesNotExist
 
 loki:
   auth_enabled: false
